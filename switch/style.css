@@ -1,0 +1,110 @@
+:root {
+  --color: #1e1e1e;
+  --side-color: #2200ff;
+  --background: #ffffff;
+  --border-color: rgba(30, 30, 30, 0.1);
+}
+
+:root[data-theme-name="dark"] {
+  --color: #ffffff;
+  --side-color: #2200ff;
+  --background: #000;
+  --border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+body{
+  font-family: sans-serif;
+  color: var(--color);
+  background: var(--background);
+}
+
+ul{
+  list-style: none;
+}
+
+button{
+  cursor: pointer;
+}
+
+.wrapper{
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.theme-buttons{
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 50px 0;
+}
+
+.theme-button{
+  border-radius: 0px;
+  border: 2px solid var(--border-color);
+  padding: 10px;
+}
+
+.theme-button.active{
+  border: 2px solid var(--side-color);
+}
+
+.card-view-buttons{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.list{
+  display: flex;
+  gap: 15px;
+}
+
+.card-view-button{
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.card-view-button svg {
+  fill: var(--side-color);
+  opacity: 0.5;
+}
+
+.card-view-button.active svg {
+  opacity: 1;
+}
+
+.cards{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  padding-bottom: 100px;
+}
+
+.cards.standard{
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.cards.compact{
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.cards.standard .item{
+  width: 100%;
+}
+
+.cards.compact .item {
+  width: 100%;
+  height: 100px;
+}
+
+.item{
+  background-color: green;
+  width: 200px;
+  height: 200px;
+  font-size: 48px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
