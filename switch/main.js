@@ -1,3 +1,39 @@
+const containers = document.querySelectorAll('.js-buttons-container');
+
+const setDateAttribute = ({settingTarget}, params) => {
+  const element = document.querySelector(settingTarget);
+}
+
+const applySetting = (setting, params) => {
+  if (setting.settingType === 'class') {
+
+  } else if (setting.settingType === 'attribute') {
+    setDateAttribute(setting, params)
+  }
+}
+
+
+const settingButtonClickHandler = (evt, setting) => {
+  const button = evt.target.closest('button');
+  if (!button) {
+    return;
+  }
+
+  const params = {}
+
+  const settingName = button.dataset.settingName;
+  const settingValue = button.dataset.settingValue;
+  params[settingName] = settingValue;
+
+  applySetting(setting, params)
+}
+
+containers.forEach(container => {
+  const setting = container.dataset;
+  container.addEventListener('click', evt => {
+    settingButtonClickHandler(evt, setting)
+  })
+});
 
 
 
