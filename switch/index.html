@@ -11,9 +11,9 @@
 <body>
 
   <div class="wrapper">
-    <div class="theme-buttons">
-      <button class="theme-button theme-button-light active">Light</button>
-      <button class="theme-button theme-button-dark">Dark</button>
+    <div data-setting-target=":root" data-setting-type="atribute" class="theme-buttons js-buttons-container">
+      <button data-setting-name="themeName" data-setting-value="light" class="theme-button active">Light</button>
+      <button data-setting-name="themeName" data-setting-value="dark" class="theme-button">Dark</button>
     </div>
 
     <div class="text">
@@ -48,9 +48,9 @@
 
 
     <div class="card-view-buttons">
-      <ul class="list">
+      <ul data-setting-target=".cards" data-setting-type="class" class="list js-buttons-container">
         <li>
-          <button class="card-view-button card-view-button-tile active">
+          <button data-setting-name="viewCard" data-setting-value="tile" class="card-view-button active">
             <svg width="21" height="13" viewBox="0 0 21 13" fill="none">
               <rect x="16" y="8" width="5" height="5" rx="1" />
               <rect x="8" y="8" width="5" height="5" rx="1" />
@@ -62,7 +62,7 @@
           </button>
         </li>
         <li>
-          <button class="card-view-button card-view-button-standard">
+          <button data-setting-name="viewCard" data-setting-value="standard" class="card-view-button">
             <svg width="21" height="13" viewBox="0 0 21 13" fill="none">
               <rect x="0" y="8" width="21" height="5" rx="1" />
               <rect x="0" width="21" height="5" rx="1" />
@@ -70,7 +70,7 @@
           </button>
         </li>
         <li>
-          <button class="card-view-button card-view-button-compact">
+          <button data-setting-name="viewCard" data-setting-value="compact" class="card-view-button">
             <svg width="21" height="13" viewBox="0 0 21 13" fill="none">
               <rect x="0" y="10" width="21" height="3" rx="1" />
               <rect x="0" y="5" width="21" height="3" rx="1" />
