@@ -1,12 +1,28 @@
 const containers = document.querySelectorAll('.js-buttons-container');
+const settingButtons = document.querySelectorAll('[data-setting-name]');
 
 const setDateAttribute = ({settingTarget}, params) => {
   const element = document.querySelector(settingTarget);
+  for (const [key, value] of Object.entries(params)) {
+    element.dataset[key] = value;
+  }
+}
+
+const setClass = ({settingTarget}, params) => {
+  const element = document.querySelector(settingTarget);
+  for (const [key, value] of Object.entries(params)) {
+
+    const elements = Array.from(settingButtons)
+    .filter(element => element.dataset['settingName'] === key);
+    elements.forEach(item => element.classList.remove(item.dataset.settingValue));
+
+    element.classList.add(value);
+  }
 }
 
 const applySetting = (setting, params) => {
   if (setting.settingType === 'class') {
-
+    setClass(setting, params)
   } else if (setting.settingType === 'attribute') {
     setDateAttribute(setting, params)
   }
