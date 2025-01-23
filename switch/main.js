@@ -1,6 +1,12 @@
 const containers = document.querySelectorAll('.js-buttons-container');
 const settingButtons = document.querySelectorAll('[data-setting-name]');
 
+const settingType = {
+  CLASS: 'class',
+  ATTRIBUTE: 'attribute'
+}
+
+
 const setDateAttribute = ({settingTarget}, params) => {
   const element = document.querySelector(settingTarget);
   for (const [key, value] of Object.entries(params)) {
@@ -35,9 +41,9 @@ const setButtonActive = (params) => {
 }
 
 const applySetting = (setting, params) => {
-  if (setting.settingType === 'class') {
+  if (setting.settingType === settingType.CLASS) {
     setClass(setting, params)
-  } else if (setting.settingType === 'attribute') {
+  } else if (setting.settingType === settingType.ATTRIBUTE) {
     setDateAttribute(setting, params)
   }
 
@@ -53,8 +59,11 @@ const settingButtonClickHandler = (evt, setting) => {
 
   const params = {}
 
-  const settingName = button.dataset.settingName;
-  const settingValue = button.dataset.settingValue;
+  // const settingName = button.dataset.settingName;
+  // const settingValue = button.dataset.settingValue;
+
+  const { settingName, settingValue } = button.dataset;
+
   params[settingName] = settingValue;
 
   applySetting(setting, params)
@@ -66,13 +75,6 @@ containers.forEach(container => {
     settingButtonClickHandler(evt, setting)
   })
 });
-
-
-
-
-
-
-
 
 
 
