@@ -20,12 +20,28 @@ const setClass = ({settingTarget}, params) => {
   }
 }
 
+const setButtonActive = (params) => {
+  for (const [key, value] of Object.entries(params)) {
+    const activeButton = Array.from(settingButtons)
+    .find(element => element.dataset['settingName'] === key && element.classList.contains('active'));
+
+    activeButton.classList.remove('active')
+
+    const setButton = Array.from(settingButtons)
+    .find(element => element.dataset['settingName'] === key && element.dataset['settingValue'] === value)
+
+    setButton.classList.add('active')
+  }
+}
+
 const applySetting = (setting, params) => {
   if (setting.settingType === 'class') {
     setClass(setting, params)
   } else if (setting.settingType === 'attribute') {
     setDateAttribute(setting, params)
   }
+
+  setButtonActive(params)
 }
 
 
